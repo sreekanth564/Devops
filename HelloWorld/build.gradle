@@ -1,6 +1,5 @@
-//apply plugin :'java'
-apply plugin: 'application'
-mainClassName = 'hello.HelloWorld'
+apply plugin: 'java'
+apply plugin: 'war'
 
 repositories {
   flatDir {
@@ -16,6 +15,6 @@ dependencies {
 }
 
 jar {
-    baseName = 'gs-gradle'
+    baseName = 'helloworld'
     version =  '0.1.0'
 }
