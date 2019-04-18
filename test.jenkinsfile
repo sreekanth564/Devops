@@ -8,14 +8,15 @@ pipeline {
      steps {
        checkout scm
       }
+     stage('Run Test Cases')
+     {
      when {
      branch 'Feature_Fea1'
       }
-    post {
-    failure {
-      // One or more steps need to be included within each condition's block.
-     }
+      steps{ bat label: '', script: 'dir'}
+     
   }
+}
 }
 }
 }
