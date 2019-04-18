@@ -1,13 +1,20 @@
 pipeline {
     agent any
-    options {
-    timestamps ()
-     }
      stages{
      stage('Checkout') 
      {
      steps {checkout scm }
      }
+     post {
+        success {
+          echo "Only when we haven't failed running the first stage"
+        }
+        
+        failure {
+          echo "Only when we fail running the first stage."
+        }
+      }
+    }
      stage('Run Test Cases')
      {
      when {
