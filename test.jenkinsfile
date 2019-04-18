@@ -1,26 +1,16 @@
 pipeline {
     agent any
-     stages{
-     stage('Checkout') 
-     {
-     steps {checkout scm }
-     }
-     post {
-        success {
-          echo "Only when we haven't failed running the first stage"
-        }
-        
-        failure {
-          echo "Only when we fail running the first stage."
-        }
+      stages
+      {
+      stage ('Checkout') 
+      {
+      steps {checkout scm }
       }
-    }
-     stage('Run Test Cases')
-     {
-     when {
-     branch 'Feature_Feat1'
+      stage ('Run Test Cases')
+      {
+      when  { branch 'Feature_Feat1'}
+      steps { bat label: '', script: 'echo Hello From jenkins'} 
       }
-      steps{ bat label: '', script: 'dir'} 
       }
       }
       
