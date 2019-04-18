@@ -1,10 +1,22 @@
 pipeline {
     agent any
     stages{
-	stage('checkout') {
-             steps {
-             checkout scm
-                }
-}
-}
-}
+	stage('checkout')
+	{
+	steps {
+	checkout scm
+	}
+	}
+    stage('run small test') 
+	{
+	when
+	{ 
+	branch 'Feature-*'
+	} 
+	steps
+	{
+	sh label: 'Running  Unit Tests', script: "echo "make unit-tests"
+	}
+        }
+        }
+        }
