@@ -4,18 +4,17 @@ pipeline {
     timestamps ()
      }
      stages{
-     stage('Checkout') {
-     steps {
-       checkout scm
-      }
+     stage('Checkout') 
+     {
+     steps {checkout scm }
+     }
      stage('Run Test Cases')
      {
      when {
      branch 'Feature_Fea1'
       }
-      steps{ bat label: '', script: 'dir'}
-     
-  }
-}
-}
-}
+      steps{ bat label: '', script: 'dir'} 
+      }
+      }
+      }
+      }
