@@ -3,6 +3,10 @@ pipeline {
     stages{
 	stage('checkout')
 	{
+	when 
+	{
+        branch 'Feature_Feat1'
+        }
 	steps {
 	checkout scm
 	}
