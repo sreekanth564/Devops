@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    options {
+    timestamps ()
+     }
+     stages{
+     stage('Checkout') {
+     steps {
+       checkout scm
+      }
+     when {
+     branch 'Feature_Fea1'
+      }
+    post {
+    failure {
+      // One or more steps need to be included within each condition's block.
+     }
+  }
+}
+}
+}
