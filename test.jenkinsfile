@@ -11,7 +11,7 @@ pipeline {
 	{
 	when 
 	{
-        branch '*/Feature_Feat1'
+        branch 'Feature_Feat1'
         }
 	steps
 	{
