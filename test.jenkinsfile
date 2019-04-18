@@ -11,8 +11,7 @@ pipeline {
 	{
 	steps
 	{
-	sh label: 'Running  Unit Tests', script: ls -ltr
-	}
+	sh encoding: 'UTF-8', label: 'Running good script', returnStdout: true, script: 'ls -ltr '
         }
         }
         }
