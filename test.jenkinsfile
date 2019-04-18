@@ -7,12 +7,12 @@ pipeline {
 	checkout scm
 	}
 	}
-    stage('run small test') 
+        stage('run small test') 
 	{
-	when
-	{ 
-	branch 'Feature_*'
-	} 
+	when 
+	{
+        branch '*/Feature_Feat1'
+        }
 	steps
 	{
 	sh label: 'Running  Unit Tests', script: ls -ltr
