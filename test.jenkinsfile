@@ -9,10 +9,6 @@ pipeline {
 	}
         stage('run small test') 
 	{
-	when 
-	{
-        branch 'Feature_Feat1'
-        }
 	steps
 	{
 	sh label: 'Running  Unit Tests', script: ls -ltr
