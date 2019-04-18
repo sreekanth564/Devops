@@ -11,7 +11,7 @@ pipeline {
      stage('Run Test Cases')
      {
      when {
-     branch 'Feature_Feat1'
+     branch 'Feature_Fea1'
       }
       steps{ bat label: '', script: 'dir'} 
       }
