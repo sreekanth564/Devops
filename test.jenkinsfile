@@ -1,3 +1,5 @@
+def pat  = "go/src/github.com/hyperledger/fabric"
+
 pipeline {
     agent any
     
@@ -5,12 +7,11 @@ pipeline {
       {
       //To Ristrict the number of builds to be visible on jenkins
       // we don't fill up our storage!
-      buildDiscarder(logRotator(numToKeepStr:'10'))
+      buildDiscarder(logRotator(numToKeepStr:'15'))
       
       //To Timeout
       timeout(time: 10, unit: 'MINUTES')            
       }
-      
       
       
       stages
@@ -22,8 +23,8 @@ pipeline {
       stage ('Run Test Cases')
       {
       // condition should pass then only next step would run else it will skip but won't fail.
-      when  { branch 'Feature_Feat1'}            
-      steps { bat label: '', script: 'echo Hello From jenkins'} 
+      when  { branch 'development'}            
+      steps { sh label: 'Running Fabric Unit Tests', script: 'print Hello From jenkins'} 
       }
       }
       }
