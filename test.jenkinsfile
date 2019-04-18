@@ -2,6 +2,7 @@ pipeline {
     agent any
     stages{
 	stage('checkout')
+	{
 	when 
 	{
         branch 'Feature_Fea1'
@@ -20,4 +21,5 @@ pipeline {
         }
         }
         }
+	}
 	
