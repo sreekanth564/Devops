@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    stages{
+	stage('checkout')
+	{
+	steps {
+	checkout scm
+	}
+	}
+        stage('run small test') 
+	{
+	steps
+	{
+	bat 'dir '
+        }
+        }
+        }
+        }
