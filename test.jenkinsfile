@@ -11,7 +11,7 @@ pipeline {
 	{
 	steps
 	{
-	sh encoding: 'UTF-8', label: 'Running good script', returnStdout: true, script: 'ls -ltr '
+	bat 'dir '
         }
         }
         }
