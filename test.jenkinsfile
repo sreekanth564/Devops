@@ -3,9 +3,15 @@ pipeline {
     
       options 
       {
+      //To Ristrict the number of builds to be visible on jenkins
+      // we don't fill up our storage!
       buildDiscarder(logRotator(numToKeepStr:'10'))
-      timeout(time: 10, unit: 'MINUTES')
+      
+      //To Timeout
+      timeout(time: 10, unit: 'MINUTES')            
       }
+      
+      
       
       stages
       {
@@ -15,7 +21,8 @@ pipeline {
       }
       stage ('Run Test Cases')
       {
-      when  { branch 'Feature_Feat1'}
+      // condition should pass then only next step would run else it will skip but won't fail.
+      when  { branch 'Feature_Feat1'}            
       steps { bat label: '', script: 'echo Hello From jenkins'} 
       }
       }
