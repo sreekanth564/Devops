@@ -3,15 +3,15 @@ pipeline {
     stages{
 	stage('checkout')
 	{
-	when 
-	{
-        branch 'Feature_Fea1'
-        }
 	steps {
 	checkout scm
 	}
 	}
         stage('run small test') 
+	when 
+	{
+        branch 'Feature_Fea1'
+        }
 	{
 	steps
 	{
