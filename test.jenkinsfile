@@ -3,7 +3,7 @@ def pat  = "go/src/github.com/hyperledger/fabric"
 pipeline {
     agent any
       triggers {
-      githubPullRequests events: [close()], spec: '* * * * * ', triggerMode: 'CRON'
+      githubPullRequests events: [close()], spec: '', triggerMode: 'CRON'
       }
       options 
       {
