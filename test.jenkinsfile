@@ -2,7 +2,9 @@ def pat  = "go/src/github.com/hyperledger/fabric"
 
 pipeline {
     agent any
-    
+      triggers {
+      githubPullRequests events: [close()], spec: '* * * * * ', triggerMode: 'CRON'
+      }
       options 
       {
       //To Ristrict the number of builds to be visible on jenkins
