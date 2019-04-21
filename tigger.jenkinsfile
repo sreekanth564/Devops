@@ -1,0 +1,21 @@
+pipeline{
+  agent any
+  {
+
+triggers{
+        
+      GenericTrigger(
+        genericHeaderVariables:[
+            [ key: 'x-github-event', regexpFilter:''] ],
+            
+        genericVariables: [
+              [ key: 'action', value: '$.action'],
+              [ key: 'pr_number', value: '$.number'],
+            
+          [ key: 'pull_request', value: '$.pull_request' ],
+              [ key: 'review', value: '$.review.state']],
+        
+        regexpFilterText: '$x-github-event:$action:$review',
+        regexpFilterExpression: '^(pull_request:open)*?$',
+        regexpFilterExpression: '^(pull_request_review:submitted:approved)*?$',
+        regexpFilterExpression: '^(pull_request_review:approved)*?$',
