@@ -16,7 +16,7 @@ triggers{
         //regexpFilterExpression: '^(pull_request:open)*?$',
         regexpFilterExpression: '^(pull_request_review:submitted)*?$',
         //regexpFilterExpression: '^(pull_request_review:approved)*?$',
-     )
+     )}
         
       stages
       {
