@@ -1,9 +1,6 @@
 pipeline{
   agent any
-  {
-
 triggers{
-        
       GenericTrigger(
         genericHeaderVariables:[
             [ key: 'x-github-event', regexpFilter:''] ],
@@ -19,3 +16,18 @@ triggers{
         regexpFilterExpression: '^(pull_request:open)*?$',
         regexpFilterExpression: '^(pull_request_review:submitted:approved)*?$',
         regexpFilterExpression: '^(pull_request_review:approved)*?$',
+        
+      stages
+      {
+      stage ('Checkout') 
+      {
+      steps {checkout scm }
+      }
+      stage ('Run Test Cases')
+      {
+      // condition should pass then only next step would run else it will skip but won't fail.
+      when  { branch 'development'}            
+      steps { sh label: 'Running Fabric Unit Tests', script: 'print Hello From jenkins'} 
+      }
+      }
+      }
