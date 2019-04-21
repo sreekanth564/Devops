@@ -12,9 +12,9 @@ triggers{
           [ key: 'pull_request', value: '$.pull_request' ],
               [ key: 'review', value: '$.review.state']],
         
-        regexpFilterText: '$x-github-event:$action:$review',
+        regexpFilterText: '$x-github-event:$action',
         //regexpFilterExpression: '^(pull_request:open)*?$',
-        regexpFilterExpression: '^(pull_request_review:submitted:approved)*?$',
+        regexpFilterExpression: '^(pull_request_review:submitted)*?$',
         //regexpFilterExpression: '^(pull_request_review:approved)*?$',
      )
         
