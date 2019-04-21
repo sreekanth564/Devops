@@ -3,7 +3,7 @@ def pat  = "go/src/github.com/hyperledger/fabric"
 pipeline {
     agent any
       triggers {
-       githubPullRequests events: [commentPattern('reviewed'), commentPattern('approved')], spec: '', triggerMode: 'CRON'
+       githubPullRequests events: [commentPattern('approved')], spec: '', triggerMode: 'CRON'
         }
       options 
       {
